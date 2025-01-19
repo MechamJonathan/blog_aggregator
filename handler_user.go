@@ -80,17 +80,6 @@ func handlerUsers(s *state, cmd command) error {
 	return nil
 }
 
-func handlerResetUsers(s *state, cmd command) error {
-	ctx := context.Background()
-	err := s.db.ResetUsers(ctx)
-	if err != nil {
-		return fmt.Errorf("couldn't reset users table: %w", err)
-	}
-	fmt.Println("Users table reset successfully!")
-
-	return nil
-}
-
 func printUser(user database.User) {
 	fmt.Printf(" * ID:      %v\n", user.ID)
 	fmt.Printf(" * Name:    %v\n", user.Name)
